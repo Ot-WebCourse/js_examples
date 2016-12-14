@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function color(color) {
+    document.forms[0].myInput.style.background = color;
+}
+</script>
+<script>
+function myFunction(x) {
+    x.style.background = "yellow";
+}
+
+</script>
+<script>
+var c = 0;
+function myCounter() {
+    document.getElementById("counter").innerHTML = ++c;
+}
+</script> 
+<script>
+function preferedBrowser(selEl) {
+    //prefer = document.forms[0].browsers.value;
+    prefer = selEl.value;
+    alert("You prefer browsing internet with " + prefer);
+}
+</script>
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('clock').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+
+<script>
+function openWin() {
+    window.open("http://www.google.com","_blank","toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400");
+}
+function printPage() {
+    window.print();
+}
+</script>
+<script>
+function insRow(id) {
+    var x = document.getElementById(id).insertRow(0);
+    var y = x.insertCell(0);
+    var z = x.insertCell(1);
+    y.innerHTML = z.innerHTML = "New";
+}
+</script>
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");   
+  var pos = 0;
+  var id = setInterval(frame,5);
+  function frame() {
+    if (pos == 150) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
+<script>
+window.onload=function(){
+ // blocking the context menu for this element                   
+};
+</script>
+<style>
+#container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  background: blue;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: green;
+}
+</style>
+
+</head>
+<body onload="startTime()">
+
+<div id="clock"></div>
+
+<div><hr width="100%"></div>
+
+<form>
+Write a message:<br>
+<input
+type="text" 
+onkeydown="color('yellow')"
+onkeyup="color('white')"
+name="myInput">
+</form>
+
+<div><hr width="100%"></div>
+
+<p>When the input field gets focus, a function is triggered which changes the background-color.</p>
+Enter your name: <input type="text" onfocus="myFunction(this)" onblur="this.style.background = '#fff';">
+
+<div><hr width="100%"></div>
+
+<form>
+Choose which browser you prefer:
+<select id="browsers" onchange="preferedBrowser(this)">
+<option value="Chrome">Chrome</option>
+<option value="Internet Explorer">Internet Explorer</option>
+<option value="Firefox">Firefox</option>
+</select>
+</form>
+
+<div><hr width="100%"></div>
+
+<h1 onmouseover="style.color='red'" onmouseout="style.color='black'">Mouse over this text</h1>
+
+<div><hr width="100%"></div>
+
+<form>
+<input type="button" value="Open Window" onclick="openWin()">
+<input type="button" value="Print this page" onclick="printPage()" />
+</form>
+
+<div><hr width="100%"></div>
+
+<button onClick="myTimer = setInterval(myCounter, 1000)">Start counter!</button>
+<p id="counter">Click on the button above and I will count forever.</p>
+<button onClick="clearInterval(myTimer)">Stop counter!</button>
+
+<div><hr width="100%"></div>
+
+<h3>Image with the blocked context menu (impossible to download) </h3>
+<img id="myImg" src="compman_lowres.gif" width="107" height="98" oncontextmenu="return false;" >
+<br><br>
+<button onclick="document.getElementById('myImg').src='compman.gif'">On</button>
+<button onclick="document.getElementById('myImg').src='compman_lowres.gif'">Off</button>
+
+<div><hr width="100%"></div>
+
+<p>Display the entire URL of the current page.</p>
+<p id="demo"></p>
+
+<div><hr width="100%"></div>
+
+<p id="p1">
+This is a text.
+This is a text.
+This is a text.
+</p>
+<input type="button" value="Hide text" 
+onclick="document.getElementById('p1').style.visibility='hidden'">
+<input type="button" value="Show text"
+onclick="document.getElementById('p1').style.visibility='visible'">
+
+<div><hr width="100%"></div>
+
+<button onclick="window.location.replace('http://www.google.com')">
+Replace document</button>
+
+<div><hr width="100%"></div>
+<div><hr width="100%"></div>
+
+<table id="myTable" style="border: 1px solid black">
+<tr>
+<td>Row1 cell1</td>
+<td>Row1 cell2</td>
+</tr>
+<tr>
+<td>Row2 cell1</td>
+<td>Row2 cell2</td>
+</tr>
+<tr>
+<td>Row3 cell1</td>
+<td>Row3 cell2</td>
+</tr>
+</table>
+<p>
+<input type="button" onclick="insRow('myTable')" value="Insert row">
+</p>
+
+<div><hr width="100%"></div>
+
+<p>
+<button onclick="myMove()">Click Me</button>
+</p> 
+
+<div id ="container">
+<div id ="animate"></div>
+</div>
+
+<div><hr width="100%"></div>
+
+<script>
+document.getElementById("demo").innerHTML = 
+"Page location is: " + window.location.href;
+</script>
+
+</body>
+</html> 
+

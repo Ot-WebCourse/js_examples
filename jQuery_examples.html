@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() { // when document ready
+$('*').mousemove(function(e)
+{
+$('#MouseCoordinates').html("X Axis Position = " + e.pageX + " and Y Axis Position = " + e.pageY);
+});
+
+});
+</script>
+<script>
+$(function(){ // the same as $(document).ready(function() {
+window.setTimeout(function()
+{
+var name = prompt("Your name?");
+ alert("Hi, " + (name ? name : "Guest") + "!");
+}, 500);
+});
+</script>
+<script>
+function afterText() {
+    var txt1 = "<b>I </b>";                   // Create element with HTML
+    var txt2 = $("<i></i>").text("love ");    // Create with jQuery
+    var txt3 = document.createElement("b");   // Create with DOM
+    txt3.innerHTML = "jQuery!";
+    $("img").after(txt1, txt2, txt3);      // Insert new elements after img
+}
+</script>
+
+<script>
+$(function(){ // the same as $(document).ready(function() {
+  $("button#bDemo").click(function(){
+    $("div#divDemo").animate({left:"170px",opacity:"0.5"},"slow");
+    $("div#divDemo").animate({fontSize:"5em"},"slow");
+  });
+});
+</script>
+<script>
+$(function(){ // the same as $(document).ready(function() {
+    $(document).ajaxError(function(e, xhr, opt,errMsg){
+        alert("Error requesting! URL - " + opt.url + ": Error Code - " + xhr.status + ", " + xhr.statusText + errMsg);
+    });
+    $("button.load").click(function(){
+        $("div>h2").load("wrongfile.txt");
+    });
+});
+</script>
+<script>
+$(function(){ // the same as $(document).ready(function() {
+    $("button#toggle").click(function(){
+        //$("h1, h2, p").toggleClass("blue");
+        $(this).siblings("h1, h2, p").toggleClass("blue");
+    });
+});
+</script>
+<script>
+$(function(){ // the same as $(document).ready(function() {
+    $("button#pargs").click(function(){
+        //$("p").css({"background-color": "yellow", "font-size": "200%"});
+        $(this).siblings("p").css({"background-color": "yellow", "font-size": "200%"});
+    });
+});
+</script>
+<script>
+$(function(){ // the same as $(document).ready(function() {
+    $("button#dimensions").click(function(){
+        var txt = "";
+        txt += "Document width/height: " + $(document).width();
+        txt += "x" + $(document).height() + "\n";
+        txt += "Window width/height: " + $(window).width();
+        txt += "x" + $(window).height();
+        alert(txt);
+    });
+});
+</script>
+<script>
+$(function(){ // the same as $(document).ready(function() {
+	$("span").parents().css({"font-weight": "bold", "border": "2px solid blue"});
+    $("span").parent().css({"color": "red", "border": "4px dotted red"});
+    $("ul").children().css({"font-style": "italic"});
+    $("div").find("span").css({"color": "red", "border": "2px solid yellow"});
+});
+</script>
+<script>
+$(function(){ // the same as $(document).ready(function() {
+    //$("p").not(".intro").css("background-color", "yellow");
+    $('#not').find("p").not(".intro").css("background-color", "yellow");
+});
+</script>
+<script>
+$(function(){ // the same as $(document).ready(function() {
+    $("#btn1").click(function(){
+        $("p.prepend").prepend("<b>Prepended text</b>. ");
+    });
+    $("#btn2").click(function(){
+        $("ol.prepend").prepend("<li>Prepended item</li>");
+    });
+});
+</script>
+<script>
+$(function(){ // the same as $(document).ready(function() {
+    $("#btn3").click(function(){
+        alert("Text: " + $("#test").text());
+    });
+    $("#btn4").click(function(){
+        alert("HTML: " + $("#test").html());
+    });
+});
+</script>
+
+<script> 
+$(function(){ // the same as $(document).ready(function() {
+    $("button.start1").click(function(){
+        var div = $("div#animated1");
+        div.animate({height: '300px', opacity: '0.4'}, "slow");
+        div.animate({width: '300px', opacity: '0.8'}, "slow");
+        div.animate({height: '100px', opacity: '0.4'}, "slow");
+        div.animate({width: '100px', opacity: '0.8'}, "slow");
+    });
+});
+</script> 
+<script> 
+$(function(){ // the same as $(document).ready(function() {
+    $("button.start2").click(function(){
+        $("div#animated2").animate({
+            height: 'toggle'
+        });
+    });
+});
+</script> 
+<script> 
+$(function(){ // the same as $(document).ready(function() {
+    $("button.start3").click(function(){
+        $("div#animated3").animate({
+            left: '20px',
+            height: '+=30px',
+            width: '+=30px'
+        });
+    });
+});
+</script> 
+<script>
+$(function(){ // the same as $(document).ready(function() {
+    $("button.fadeTo").click(function(){
+        $("#div4").fadeTo("slow", 0.15);
+        $("#div6").fadeTo("slow", 0.4);
+        $("#div6").fadeTo("slow", 0.7);
+    });
+});
+</script>
+<script>
+$(function(){ // the same as $(document).ready(function() {
+$('.show').hide();
+    $("button.hide").click(function(){
+        $(this).siblings("p").hide(1000);
+        $(this).hide();
+        $('.show').show();
+    });
+    $("button.show").click(function(){
+        $(this).siblings("p").show(1000);
+        $(this).hide();
+        $('.hide').show();
+    });
+});
+</script>
+<script> 
+$(function(){ // the same as $(document).ready(function() {
+    $("#flip .down").click(function(){
+        $("#panel").slideDown(5000);
+        //$("#panel").slideToggle("100000");
+    });
+    $("#flip .up").click(function(){
+        $("#panel").slideUp(5000);
+       
+    });
+    $("#stop").click(function(){
+        $("#panel").stop();
+    });
+});
+</script>	
+
+<script>
+$(function(){ // the same as $(document).ready(function() {
+    $("button.fadeToggle").click(function(){
+        $("#div1").fadeToggle();
+        $("#div2").fadeToggle("slow");
+        $("#div3").fadeToggle(3000);
+    });
+});
+</script>
+<style>
+.blue {
+    color: blue;
+}
+.ancestors * { 
+    display: block;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    padding: 5px;
+    margin: 15px;
+}
+#panel, #flip {
+    padding: 5px;
+    font-size: 18px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+    color: white;
+    border-radius: 3px;
+}
+
+#panel {
+    padding: 50px;
+    height:250px;
+    display: none;
+}
+
+</style>
+	</head>
+	<body>
+		<h3>Mouse Coordinates: </h3><div id=MouseCoordinates></div>
+		
+		<hr width=100%>
+		
+		<button id="bDemo" class="w3-btn w3-blue">Start Animation</button>
+		<div id="divDemo" style="border: 1px solid rgb(85, 85, 85); border-radius: 3px; color: white; background: rgb(85, 85, 85); height: 105px; width: 260px; position: relative;">jQuery</div>
+		
+		<hr width=100%>
+		
+		<p>Click the button to insert text after the image.</p>
+		<img src="jQuery.png" alt="jQuery" width="300" height="140">
+		<button onclick="afterText()">Insert after</button>
+	
+		<hr width=100%>
+		
+		<div><h2>Let AJAX change this text</h2></div>
+		<button class="load">Change Content</button>
+
+<hr width=100%>
+
+<div>
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+<button id="toggle">Toggle class</button>
+</div>
+
+<hr width=100%>
+
+<div>
+<h2>This is a heading</h2>
+<p style="background-color:#ff0000">This is a paragraph.</p>
+<p style="background-color:#00ff00">This is a paragraph.</p>
+<p style="background-color:#0000ff">This is a paragraph.</p>
+<p>This is a paragraph.</p>
+<button id="pargs">Set multiple styles for p</button>
+</div>
+
+<hr width=100%>
+
+<div class="ancestors">
+  <div style="width:500px;">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span</span>
+      </li>
+    </ul>   
+  </div>
+  <div style="width:500px;">div (grandparent)   
+    <p>p (direct parent)
+        <span>span</span>
+      </p> 
+  </div>
+</div>
+
+<hr width=100%>
+
+<button id="dimensions">Display dimensions of document and window</button>
+
+<hr width=100%>
+
+<div id="not">
+<h1>Welcome to My Homepage</h1>
+<p>My name is Donald.</p>
+<p class="intro">I live in Duckburg.</p>
+<p class="intro">I love Duckburg.</p>
+<p>My best friend is Mickey.</p>
+</div>
+
+<hr width=100%>
+
+<p class="prepend">This is a paragraph.</p>
+<p class="prepend">This is another paragraph.</p>
+<ol class="prepend">
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
+</ol>
+<button id="btn1">Prepend text</button>
+<button id="btn2">Prepend list item</button>
+
+	<hr width=100%>
+
+<p id="test">This is some <b>bold</b> text in a paragraph.</p>
+<button id="btn3">Show Text</button>
+<button id="btn4">Show HTML</button>
+
+	<hr width=100%>
+	
+<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position to relative, absolute or fixed.
+<button class="start1">Start Animation1</button>
+<div id="animated1" style="margin:10px;background:#98bf21;height:100px;width:100px;position:relative;"></div>
+	<hr width=100%>
+<p>Click the button multiple times to toggle the animation.</p>
+<button class="start2">Start Animation2</button>
+<div id="animated2"  style="margin:10px;background:#00f;height:100px;width:100px;position:relative;"></div>
+	<hr width=100%>
+<button class="start3">Start Animation3</button>	
+<div id="animated3"  style="margin:10px;background:#f00;height:100px;width:100px;position:relative;"></div>
+
+	<hr width=100%>
+
+<button id="stop">Stop sliding</button> 
+<div id="flip">Click to slide the panel <a class="down" style="cursor:pointer;color:blue;">down</a> or <a class="up" style="cursor:pointer;color:blue;">up</a></div>
+<div id="panel">Hi, I am Panel)</div>
+
+	<hr width=100%>
+
+<p>Demonstrate fadeToggle() with different speed parameters.</p>
+<button class="fadeToggle">Click to fade in/out boxes</button><br><br>
+<div id="div1" style="width:80px;height:80px;background-color:red;"></div>
+<br>
+<div id="div2" style="width:80px;height:80px;background-color:green;"></div>
+<br>
+<div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+
+	<hr width=100%>
+	
+<p>Demonstrate fadeTo() with different parameters.</p>
+<button class="fadeTo">Click to fade boxes</button><br><br>
+<div id="div4" style="width:80px;height:80px;background-color:red;"></div><br>
+<div id="div5" style="width:80px;height:80px;background-color:green;"></div><br>
+<div id="div6" style="width:80px;height:80px;background-color:blue;"></div>
+
+<hr width=100%>
+
+<div>
+<button class='hide'>Hide</button><button class='show'>Show</button>
+<p>This is a paragraph with little content.</p>
+<p>This is another small paragraph.</p>
+</div>
+		
+		<hr width=100%>
+		
+<h3>Showing the difference in e.preventDefault() and return false;</h3>		
+<div id="prevDef" class="parent">
+    <div>
+        Oh look at me.
+    </div>
+    <div>
+        I'm a div, with a link. <a href="#">I'm that link</a>
+    </div>
+</div>
+
+<div id="retFalse" class="parent">
+    <div>
+        Oh look at me.
+    </div>
+    <div>
+        I'm a div, with a link. <a href="#">I'm that link</a>
+    </div>
+</div>
+
+<script>
+$("#prevDef div").click(function() {
+    $(this).css({
+        "color": "#f00"
+    });
+});
+
+$("#prevDef a").click(function(e) {
+    e.preventDefault();
+    $(this).hide();
+});
+
+
+$("#retFalse div").click(function() {
+    $(this).css({
+        "color": "#f00"
+    });
+});
+
+$("#retFalse a").click(function(e) {
+    $(this).hide();
+    return false;
+});
+</script>
+</body>
+</html>
